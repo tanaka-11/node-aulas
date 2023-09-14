@@ -10,20 +10,27 @@ const monitoramentoReq = (req, res) => {
     // Avaliação de cada requisição(req) a partir do link.
     switch(req.url) {
         case '/':
-            // res.end('Servidor Node rodando no navegador.') -> Mostrando que a página esta funcionando!
-            
+            // res.end('Servidor Node rodando no navegador.') // Mostrando que a página esta funcionando!
+
+            // Versão explicativa:
             // 'FS' faz o carregamento e leitura do arquivo 
             fs.readFile('paginas/index.html')
             // Depois de pronto, ele envia o conteudo como resposta.
-            .then(conteudo => read.end(conteudo));
+            .then(conteudo => res.end(conteudo));
+
+            
         break;
         
         case '/sobre':
-            // exibir sobre.html
+            // Versão numa única linha:
+            fs.readFile('paginas/sobre.html').then(conteudo => res.end(conteudo));
         break;
         
         default:
-            // exibir 404.html
+            // Passando o erro 404 inves do 200(ok)
+            res.writeHead(404);
+            // Versão em linhas separadas:
+            fs.readFile('paginas/404.html').then(conteudo => res.end(conteudo));
         break;    
     }
 };
@@ -35,6 +42,6 @@ const servidor = http.createServer(monitoramentoReq)
 // servidor.listen(8080);
 
 // Fazendo rodar uma mensagem de sucesso.
-servidor.listen(8080, () => {
+servidor.listen(3000, () => {
     console.log("Servidor inicializado com sucesso!");
 })
