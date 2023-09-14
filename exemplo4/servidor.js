@@ -1,4 +1,6 @@
-import http from 'http'; // Módulo de importação nativo HTTP
+import http from 'http'; // Módulo de importação nativo HTTP.
+
+import fs from 'fs/promises' // Importação do File system. Ele permite que o servidor tenha acesso ao sistema de arquivos.
 
 // Fazendo uma constante de monitoramento que recebe dois parâmetros req(requisição) e res (resposta) com a 'arrow fuction' inves da 'fuction' padrão.
 const monitoramentoReq = (req, res) => {
@@ -8,7 +10,12 @@ const monitoramentoReq = (req, res) => {
     // Avaliação de cada requisição(req) a partir do link.
     switch(req.url) {
         case '/':
-            // exibir index.html
+            // res.end('Servidor Node rodando no navegador.') -> Mostrando que a página esta funcionando!
+            
+            // 'FS' faz o carregamento e leitura do arquivo 
+            fs.readFile('paginas/index.html')
+            // Depois de pronto, ele envia o conteudo como resposta.
+            .then(conteudo => read.end(conteudo));
         break;
         
         case '/sobre':
