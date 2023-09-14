@@ -30,7 +30,8 @@ const monitoramentoReq = (req, res) => {
             // Passando o erro 404 inves do 200(ok)
             res.writeHead(404);
             // Versão em linhas separadas:
-            fs.readFile('paginas/404.html').then(conteudo => res.end(conteudo));
+            fs.readFile('paginas/404.html')
+                .then(conteudo => res.end(conteudo));
         break;    
     }
 };
