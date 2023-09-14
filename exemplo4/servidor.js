@@ -1,29 +1,33 @@
-import http from 'http';    // importando o módulo nativo http, mesmo sendo um módulo nativo, ainda assim precisamos do package.json
+import http from 'http'; // Módulo de importação nativo HTTP
 
+// Fazendo uma constante de monitoramento que recebe dois parâmetros req(requisição) e res (resposta) com a 'arrow fuction' inves da 'fuction' padrão.
+const monitoramentoReq = (req, res) => {
+    // Configuração de header sobre a resposta (res) para trabalhar com HTML e utf-8.
+    res.writeHead(200, {"Content-Type" : "text/html;charset=utf8"});
 
-// criando uma função que vai monitorar as requisições e respostas do servidor, recebe dois parâmetros requisição e resposta.
-const monitorRequisicao = (req, res) => { 
-
-    // Configurando o cabeçalho da resposta para trabalhar com arquivos HTML e charset-utf-8
-    res.writeHead(200, {"Content-Type" : "text/html; charset=utf8"});
-
-    // Avaliando cada requisição (a partir do link)
-    switch (req.url) {
+    // Avaliação de cada requisição(req) a partir do link.
+    switch(req.url) {
         case '/':
-            // o carregamento e leitura do index.html
+            // exibir index.html
         break;
-
+        
         case '/sobre':
-            // o carregamento e leitura do sobre.html
+            // exibir sobre.html
         break;
-
+        
         default:
-            // o carregamento e leitura do 404.html
-        break;
+            // exibir 404.html
+        break;    
     }
+};
 
-    
-}
+// Criação do servidor http e passando a função de requisições (monitoramentoReq).
+const servidor = http.createServer(monitoramentoReq)
 
+// Iniciando a escuta do servidor local na porta 8080.
+// servidor.listen(8080);
 
-
+// Fazendo rodar uma mensagem de sucesso.
+servidor.listen(8080, () => {
+    console.log("Servidor inicializado com sucesso!");
+})
