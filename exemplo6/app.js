@@ -9,7 +9,17 @@ app.set('view engine', 'ejs');
 
 // Configurando as rotas de acesso:
     // Raiz = '/'
-    // res.send('Bem-Vindo(a) ao servidor ExpressJS!') - Testando se o framework está funcionando.
+    app.get('/', (req, res) => {
+        // res.send('Bem-Vindo(a) ao servidor ExpressJS!') - Testando se o framework está funcionando.
+
+        // Criando constante com array
+        const bandas = ['Tanaka', 'Nando', 'Bia'];
+        
+        
+        res.render('paginas/index', {bandas});
+    });
+
+
         app.get('/', (req, res) => {
             res.render('paginas/index')
         })
