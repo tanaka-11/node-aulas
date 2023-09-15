@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "name": "expressjs",
+  "version": "1.0.0",
+  "description": "Criação de servidor utilizando o framework ExpressJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "_tanaka11_",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
