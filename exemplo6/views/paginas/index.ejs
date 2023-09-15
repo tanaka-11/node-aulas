@@ -20,13 +20,23 @@
     </header>
 
 
-    <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam et nobis aperiam quo error vitae neque aut dolore officia? Minus sequi vero natus fugiat obcaecati facere exercitationem deserunt aut reiciendis?
-    </p>
+    <main>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam et nobis aperiam quo error vitae neque aut dolore officia? Minus sequi vero natus fugiat obcaecati facere exercitationem deserunt aut reiciendis?
+        </p>
 
-    <p>
-        <a href="/">Inicial</a> | <a href="/sobre">Sobre</a> | <a href="/contato">Contatos</a>
-    </p>
+        <ul>
+            <% for (banda of bandas) { %>
+            <li> 
+                <%=bandas%> 
+            </li>
+            <% } %>
+        </ul>
+
+        <p>
+            <a href="/">Inicial</a> | <a href="/sobre">Sobre</a> | <a href="/contato">Contatos</a>
+        </p>
+    </main>
 
 </body>
 
