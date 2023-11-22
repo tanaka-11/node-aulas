@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro passos com DOM</title>
+
+    <style>
+        body {
+            background: cornflowerblue;
+            color: darkblue;
+            font: normal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>*resultado*</p>
+    <p>Aprendendo usar o <b>DOM</b> em JavaScript.</p>
+    <div id="mensagem">Clique aqui!</div>
+
+    <script>
+        // Usando getElementsbyTag (Usando por nome de tag)
+        let corpo = window.document.body
+        let p1 = window.document.getElementsByTagName('p')[1]
+        p1.style.color = 'white'
+        
+        // Usando getElementsbyID
+        // let div = window.document.getElementById('mensagem')
+        // div.style.background = 'blue'
+        // div.innerText = 'Aguardando'
+        // window.document.getElementById('mensagem').innerText = 'Salve'
+
+        // Usando getElementsbyName
+        // let d = window.document.getElementsByName('mensagem')
+        // d.innerText = 'Olá'
+
+        // Usando querySelector (Versão mais atualizada de selecionar elementos)
+        let div = window.document.querySelector('div#mensagem')
+        div.style.background = 'blue'
+    </script>
+</body>
+</html>
